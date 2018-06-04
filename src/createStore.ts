@@ -12,6 +12,8 @@ import {
     applyMiddleware,
     compose,
     createStore as reduxCreateStore,
+    AnyAction,
+    Dispatch,
     Middleware,
     Reducer,
     Store,
@@ -29,12 +31,13 @@ export const createStore = <TState>(
     optionalMiddleware: Middleware[] = [],
 ): Store<TState> => {
     // tslint:disable-next-line no-string-literal
-    const composeFunction: any = window["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
+    const anyWindow = window as any
+    const composeFunction: any = anyWindow["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
 
     const composeEnhancers =
         typeof window === "object" && composeFunction ? composeFunction({ name }) : compose // tslint:disable-line no-string-literal
 
-    const loggingMiddleware: Middleware = createLoggingMiddleware(name)
+    const loggingMiddleware: Middleware = createLoggingMiddleware<TState>(name)
 
     const middleware = [loggingMiddleware, ...optionalMiddleware]
 
@@ -42,5 +45,5 @@ export const createStore = <TState>(
         applyMiddleware(...middleware),
         batchedSubscribe(RequestAnimationFrameNotifyBatcher()),
     )
-    return reduxCreateStore(reducer, defaultState, enhancer)
+    return reduxCreateStore(reducer, defaultState as any, enhancer)
 }
