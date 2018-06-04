@@ -37,7 +37,7 @@ export const createStore = <TState>(
     const composeEnhancers =
         typeof window === "object" && composeFunction ? composeFunction({ name }) : compose // tslint:disable-line no-string-literal
 
-    const loggingMiddleware: Middleware = createLoggingMiddleware<TState>(name)
+    const loggingMiddleware: Middleware = createLoggingMiddleware(name)
 
     const middleware = [loggingMiddleware, ...optionalMiddleware]
 
