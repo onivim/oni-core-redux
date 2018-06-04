@@ -1,7 +1,7 @@
 {
-    "name": "oni-core-logging",
+    "name": "oni-core-redux",
     "version": "1.0.0",
-    "description": "Simple logging utilities used across Oni",
+    "description": "Thin wrapper around redux for Oni",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "scripts": {
