@@ -8,3 +8,11 @@ install:
 - yarn install
 script:
 - yarn build
+deploy:
+  provider: npm
+  email: bryphe@outlook.com
+  skip_cleanup: true
+  api_key:
+    secure: okR7An8n9nIgl5OHgR+2CIMmrY1JtFUleDvvFOy1wz+s0UgimFqy2pdBHMpa3tFvft8R7+kMVmxlTLW1CN38DFrkkdDCkqAanQeQzO0fGeYKyyCQYrp5K9BOhVqez6ZuAFi8oCr/tegFGeICklezIAn1kwr627T0FdMbTJAf/Ym3D/e/0BNo35Uk+oD68ccuPcHcCBfGZoH9oGTyMroA3s0XbMRVptj/Kd/Izsdm+jssAkdIublMWr9Xr0f/iDXn2Yi9Ko8/55FA/DrHt17//cIvcnqGhJLhgYiyhovtgppti0pJrTiPDMZGiSpk8EBV0e9AL+S4Kz68SUvgBJE9/dWABFO3FrcYd4V/HteIAo1Yl60HCEahcs6jFBhhD1okQCfH6Pl+LAX0CStUEHaJPDrBOeDfuhWFwDwRGAFtx4W7xqcSokV96z2UHYIF45u8sCo7LhwTXnsO4sF02q3Z7l7n16kWA5ECoCGi83CrGWrrXQ4Rvu3JUyL/KK8a2XZczBkWe5X52Awyjpy5yyuhk1N2WSELKjQJx5kVnqL4XPvGsteyJ2LPJS1DFkhLgsiHikrLiVhio1twM30fRubMAD5Nggd8kE7WHs3vS+7tzZ6nvJHeMeE14O4ZbzPAJ0YF8l0gFQskMeM84KPwq5qlP+rW1hbHCjI4t0O8OzFrqIc=
+  on:
+    repo: onivim/oni-core-redux
